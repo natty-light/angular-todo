@@ -1,0 +1,6 @@
+<div class="border-1 border-black rounded-sm">
+  <input type="checkbox" (click)="onItemComplete()" [checked]="item().completed">
+  <p>
+    {{ item().text }}
+  </p>
+</div>
