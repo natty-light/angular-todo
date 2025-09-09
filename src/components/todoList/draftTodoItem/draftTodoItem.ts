@@ -1,8 +1,12 @@
 import {Component, input, type WritableSignal} from '@angular/core';
 import {ToDoItem} from '../../../types';
+import {SaveButton} from '../saveButton/saveButton';
 
 @Component({
   selector: 'draft-to-do-item',
+  imports: [
+    SaveButton
+  ],
   templateUrl: 'draftTodoItem.html'
 })
 export class DraftToDoItem {
