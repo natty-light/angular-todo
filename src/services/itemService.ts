@@ -28,5 +28,14 @@ export class ItemService {
       return
     }
     this.items[idx] = { ...this.items[idx], ...newItemFields }
+
+    if (newItemFields.completed) {
+      new Promise((resolve) => {
+        setTimeout(() => {
+          this.deleteItem(id)
+          resolve(true)
+        }, 5000)
+      })
+    }
   }
 }

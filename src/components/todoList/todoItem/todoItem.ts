@@ -16,7 +16,6 @@ export class TodoItem {
   item = input.required<ToDoItem>()
   draftItemText = signal('')
   isEditing = signal(false)
-  onItemComplete = input.required<(id: number) => void>()
   constructor(service: ItemService) {
     this.itemService = service
 
@@ -24,7 +23,7 @@ export class TodoItem {
   }
 
   completeItem() {
-    this.onItemComplete()(this.item().id)
+    this.itemService.updateItem(this.item().id, { completed: true })
   }
 
   onEditItem() {
