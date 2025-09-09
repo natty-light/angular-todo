@@ -1,6 +1,15 @@
-<div class="border-2 border-gray-400 rounded-sm flex flex-row gap-2 p-2 w-11/12">
-  <input type="checkbox" (click)="onItemComplete()" [checked]="item().completed">
-  <p>
-    {{ item().text }}
-  </p>
+<div class="flex flex-row gap-4">
+  <div class="border-2 border-gray-400 rounded-sm flex flex-row gap-2 p-2 w-11/12">
+    <input type="checkbox" (click)="onItemComplete()" [checked]="item().completed">
+    @if (!isEditing()) {
+      <p (click)="onEditItem()">
+        {{ item().text }}
+      </p>
+    } @else {
+      <input type="text" [placeholder]="item().text" (change)="onTextChange($event)">
+    }
+  </div>
+  @if (isEditing()) {
+    <save-button [saveItem]="onSave"/>
+  }
 </div>
