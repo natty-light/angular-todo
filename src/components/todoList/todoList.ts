@@ -24,8 +24,7 @@ export class ToDoList {
   }
 
   handleAddItem() {
-    alert('clicked')
-    if (this.localItem()) {
+    if (this.localItem().text) {
       this.itemService.addItem(this.localItem() as ToDoItem)
       this.localItem.set({})
     }
