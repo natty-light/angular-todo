@@ -1,4 +1,4 @@
-import {Component, input, signal, WritableSignal} from '@angular/core';
+import {Component, input, type WritableSignal} from '@angular/core';
 import {ToDoItem} from '../../../types';
 
 @Component({

@@ -15,6 +15,8 @@ export class ToDoList {
   localItem = signal<Partial<ToDoItem>>({})
   constructor(service: ItemService) {
     this.itemService = service;
+
+    this.handleAddItem = this.handleAddItem.bind(this)
   }
 
   handleItemComplete(itemId: number) {
@@ -22,7 +24,7 @@ export class ToDoList {
   }
 
   handleAddItem() {
-    console.log(this.localItem())
+    alert('clicked')
     if (this.localItem()) {
       this.itemService.addItem(this.localItem() as ToDoItem)
       this.localItem.set({})
