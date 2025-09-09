@@ -12,8 +12,8 @@ import {DraftToDoItem} from './draftTodoItem/draftTodoItem';
 export class ToDoList {
   itemService: ItemService
   isAddingItem = signal<boolean>(false)
-  localItem = signal<Partial<ToDoItem> | null>(null)
-  constructor(private service: ItemService) {
+  localItem = signal<Partial<ToDoItem>>({})
+  constructor(service: ItemService) {
     this.itemService = service;
   }
 
@@ -22,21 +22,16 @@ export class ToDoList {
   }
 
   handleAddItem() {
+    console.log(this.localItem())
     if (this.localItem()) {
       this.itemService.addItem(this.localItem() as ToDoItem)
+      this.localItem.set({})
     }
+    this.isAddingItem.set(false)
   }
 
   handleAddDraft() {
     this.isAddingItem.set(true)
-    this.localItem.set({
-      id: this.itemService.idCounter()
-    })
-  }
-
-  handleUpdateDraft(fields: Partial<Omit<ToDoItem, 'id'>>) {
-    this.localItem.update((value) => ({ ...value, ...fields }))
-    this.isAddingItem.set(false)
   }
 
   items() {

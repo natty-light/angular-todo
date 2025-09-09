@@ -1,6 +1,6 @@
-<div class="border-2 border-black rounded-sm flex flex-row justify-between">
-  <input class="w-100 p-2 focus:outline-none" placeholder="enter your task" (input)="onTextChange($event)">
-  <button (click)="saveItem()">
+<div class="flex flex-row gap-4">
+  <input class="w-11/12 p-2 focus:outline-none border-gray-400 border-2 rounded-sm" placeholder="enter your task" (input)="onTextChange($event)">
+  <button (click)="saveItem()" class="cursor-pointer border-b-blue-400 rounded-sm pt-2 pb-2 p-8 bg-blue-400 text-white">
     save
   </button>
 </div>

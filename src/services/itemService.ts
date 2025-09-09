@@ -10,8 +10,11 @@ export class ItemService {
     this.items = [];
   }
 
-  addItem(item: ToDoItem) {
-    this.items.push(item)
+  addItem(item: Omit<ToDoItem, 'id'>) {
+    this.items.push({
+      id: this.idCounter(),
+      ...item
+    })
     this.idCounter.update((val) => val++)
   }
 

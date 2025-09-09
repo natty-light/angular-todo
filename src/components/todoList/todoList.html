@@ -4,11 +4,11 @@
   }
   @if (!isAddingItem()) {
     <div>
-      <p class="text-gray-500 border-b-2 border-b-gray-600" (click)="handleAddDraft()">
+      <p class="text-gray-500" (click)="handleAddDraft()">
         Add an item
       </p>
     </div>
   } @else {
-    <draft-to-do-item [item]="localItem()" />
+    <draft-to-do-item [localItem]="localItem" [saveItem]="handleAddItem" />
   }
 </div>
