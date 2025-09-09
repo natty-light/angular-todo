@@ -1,6 +1,6 @@
-<div class="border-1 border-black rounded-sm">
-  <input type="checkbox">
-  <p>
-    {{ item()?.text }}
-  </p>
+<div class="border-2 border-black rounded-sm flex flex-row justify-between">
+  <input class="w-100 p-2 focus:outline-none" placeholder="enter your task" (input)="onTextChange($event)">
+  <button (click)="saveItem()">
+    save
+  </button>
 </div>
