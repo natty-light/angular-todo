@@ -15,7 +15,7 @@ export class ItemService {
       id: this.idCounter(),
       ...item
     })
-    this.idCounter.update((val) => val++)
+    this.idCounter.update((val) => val + 1)
   }
 
   deleteItem(id: number) {
