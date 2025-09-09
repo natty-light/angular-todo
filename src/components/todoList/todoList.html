@@ -1,4 +1,4 @@
-<div>
+<div class="flex flex-col gap-2">
   @for (item of items(); track item.id) {
     <to-do-item [item]="item" [onItemComplete]="handleItemComplete" />
   }
